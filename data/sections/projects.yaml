@@ -18,7 +18,7 @@ projects:
   logo: ""
   role: AI 产品经理
   timeline: "2025.12 - 2026.04"
-  url: "/zh/projects/project1/"
+  url: "/personal-website/zh/projects/project1/"
   summary: "基于低代码 AI 平台搭建多款 AI Skill，优化客服对话体系"
   tags:
   - "AI Product"
@@ -26,7 +26,7 @@ projects:
   logo: ""
   role: AI 产品经理
   timeline: "2026.04 - 2026.06"
-  url: "/zh/projects/project2/"
+  url: "/personal-website/zh/projects/project2/"
   summary: "从 0 到 1 设计大模型 Agent 客服体系，替代传统 DI 工作流"
   tags:
   - "Agent"
@@ -34,7 +34,7 @@ projects:
   logo: ""
   role: AI 产品经理
   timeline: "2026.06 - 至今"
-  url: "/zh/projects/project3/"
+  url: "/personal-website/zh/projects/project3/"
   summary: "设计四维画像体系与数据治理规则，为通用 Agent 提供个性化记忆能力"
   tags:
   - "Data"
