@@ -1,0 +1,74 @@
+/* 温暖柔和配色覆盖 - 替换 Toha 默认色 */
+:root {
+  --toha-primary-color: #C4956A;
+  --toha-primary-color-rgb: 196, 149, 106;
+  --toha-accent-color: #F0D5B8;
+  --toha-text-color: #2D2D2D;
+  --toha-text-secondary-color: #6B6B6B;
+  --toha-background-color: #FDF8F4;
+  --toha-card-background: #FFFFFF;
+  --toha-border-color: #E8DDD4;
+}
+
+/* Warm background for the body */
+body {
+  background-color: var(--toha-background-color);
+}
+
+/* Card styling - softer shadows and rounded corners */
+.card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--toha-border-color) !important;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;
+}
+
+/* Primary color overrides */
+a, .btn-link {
+  color: var(--toha-primary-color);
+}
+
+a:hover {
+  color: #B08050;
+}
+
+.btn-primary {
+  background-color: var(--toha-primary-color) !important;
+  border-color: var(--toha-primary-color) !important;
+}
+
+/* Section styling */
+.section-separator {
+  border-color: var(--toha-border-color) !important;
+}
+
+/* Skill tags - warm green accent */
+.skill-badge {
+  background-color: #5C8D7B !important;
+  color: white !important;
+  border-radius: 20px !important;
+  padding: 4px 14px !important;
+  font-size: 0.85rem !important;
+}
+
+/* Navigation */
+.navbar {
+  background-color: rgba(253, 248, 244, 0.95) !important;
+  border-bottom: 1px solid var(--toha-border-color);
+}
+
+/* Hero section */
+.home-section {
+  background: linear-gradient(135deg, #FDF8F4 0%, #F5EDE4 100%);
+}
+
+/* Footer */
+footer {
+  background-color: #F5EDE4 !important;
+  border-top: 1px solid var(--toha-border-color);
+}
