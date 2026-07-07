@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zhs on 刘彤 - AI 产品经理</title>
+    <link>https://tonton-520.github.io/personal-website/zh/</link>
+    <description>Recent content in Zhs on 刘彤 - AI 产品经理</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://tonton-520.github.io/personal-website/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent 记忆系统 &amp; 多维度画像体系搭建</title>
+      <link>https://tonton-520.github.io/personal-website/zh/projects/project3/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://tonton-520.github.io/personal-website/zh/projects/project3/</guid>
+      <description>设计四维画像体系与数据治理规则，为通用 Agent 提供个性化记忆能力支撑</description>
+    </item>
+    
+    <item>
+      <title>业务 AI 工具搭建与客服迭代优化</title>
+      <link>https://tonton-520.github.io/personal-website/zh/projects/project1/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://tonton-520.github.io/personal-website/zh/projects/project1/</guid>
+      <description>基于低代码 AI 平台搭建多款 AI Skill，优化客服对话体系，实现留资转化正向提升</description>
+    </item>
+    
+    <item>
+      <title>关于我</title>
+      <link>https://tonton-520.github.io/personal-website/zh/about/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://tonton-520.github.io/personal-website/zh/about/</guid>
+      <description>&lt;h2 id=&#34;个人简介&#34;&gt;个人简介&lt;/h2&gt;
+&lt;p&gt;硕士应届生，具备 8 个月垂直行业 AI 产品落地经验，深耕大模型应用层产品搭建。熟练掌握低代码 AI 平台工作流设计、智能体从 0 到 1 拆解、多维度用户画像与记忆系统梳理。&lt;/p&gt;
+&lt;p&gt;区别于纯提示词优化的入门产品，具备业务拆解 → 规则建模 → 工具封装 → 数据治理 → 落地迭代的完整 AI 应用思维。擅长将复杂业务规则转化为可落地的 AI 能力，曾通过客服 AI 迭代实现业务留资转化正向提升。&lt;/p&gt;
+&lt;h2 id=&#34;专业技能&#34;&gt;专业技能&lt;/h2&gt;
+&lt;h3 id=&#34;ai-产品能力&#34;&gt;AI 产品能力&lt;/h3&gt;
+&lt;p&gt;Dify 工作流编排 · Skill 技能设计 · Agent 智能体模块化设计 · 意图域梳理 · 对话话术体系搭建 · 大模型应用落地迭代&lt;/p&gt;
+&lt;h3 id=&#34;数据产品能力&#34;&gt;数据产品能力&lt;/h3&gt;
+&lt;p&gt;多源异构数据治理 · 用户/房源/业主/经纪人四维画像梳理 · 数据冲突权重规则拆解 · 标准化 JSON 字段输出&lt;/p&gt;
+&lt;h3 id=&#34;辅助能力&#34;&gt;辅助能力&lt;/h3&gt;
+&lt;p&gt;代码节点提效 · 接口封装复用 · 业务政策建模 · AI 产品问题复盘与迭代&lt;/p&gt;
+&lt;h2 id=&#34;个人优势&#34;&gt;个人优势&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;落地型 AI 产品&lt;/strong&gt; — 无纸上谈兵经验，所有能力均来自真实业务落地，懂大模型应用痛点、算力损耗、模型幻觉问题，擅长用工程化思维优化 AI 产品效果&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;架构认知超前&lt;/strong&gt; — 入职 7 个月即完成从传统 AI 工作流、单提示词迭代，到模块化 Agent、底层记忆数据底座的能力进阶&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;业务结果导向&lt;/strong&gt; — 具备可量化业务转化成果，既懂产品设计，也懂商业转化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;成长速度快&lt;/strong&gt; — 快速掌握智能体全新规范体系，能够快速承接前沿 AI 产品项目&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>新一代 AI 客服 Agent 方案设计</title>
+      <link>https://tonton-520.github.io/personal-website/zh/projects/project2/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://tonton-520.github.io/personal-website/zh/projects/project2/</guid>
+      <description>从 0 到 1 设计大模型 Agent 客服体系，替代传统 DI 工作流</description>
+    </item>
+    
+    <item>
+      <title>联系我</title>
+      <link>https://tonton-520.github.io/personal-website/zh/contact/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://tonton-520.github.io/personal-website/zh/contact/</guid>
+      <description>&lt;h2 id=&#34;联系方式&#34;&gt;联系方式&lt;/h2&gt;
+&lt;p&gt;感谢你的关注！以下方式可以联系到我：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;邮箱&lt;/strong&gt;: &lt;a href=&#34;mailto:your-email@example.com&#34;&gt;your-email@example.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href=&#34;https://github.com/tonton-520&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tonton-520&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

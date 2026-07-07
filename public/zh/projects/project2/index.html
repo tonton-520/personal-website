@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>新一代 AI 客服 Agent 方案设计</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+
+
+<link rel="canonical" href="https://tonton-520.github.io/personal-website/zh/projects/project2/" />
+
+
+<link rel="stylesheet" href="/personal-website/application.651172bb8d0b6978c8754ba15eca07f690603da7d4f873714b5751cf6073b7f2.css" integrity="sha256-ZRFyu40LaXjIdUuhXsoH9pBgPafU&#43;HNxS1dRz2Bzt/I=" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="新一代 AI 客服 Agent 方案设计" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="" /><meta property="og:url" content="https://tonton-520.github.io/personal-website/zh/projects/project2/">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="新一代 AI 客服 Agent 方案设计">
+	<meta name="twitter:description" content="从 0 到 1 设计大模型 Agent 客服体系，替代传统 DI 工作流">
+
+    
+<meta name="description" content="新一代 AI 客服 Agent 方案设计" />
+
+
+    
+
+
+
+
+
+    <script integrity="sha256-DO4ugzEwhTW1Id1UIWn0gUJWaebCYOypeTit6LW4QB4=">
+     let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+
+    </script>
+    
+  </head>
+
+  <body class="type-zh kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/personal-website">
+      刘彤 - AI 产品经理</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/personal-website#home">Home</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/personal-website#about">关于我</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/personal-website#experiences">工作经历</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/personal-website#projects">项目经验</a>
+                </li>
+              
+            
+          
+        
+        
+        
+        
+        
+        
+        
+          
+
+
+
+  
+  
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/personal-website/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="light">
+    <img class="theme-icon" src="/personal-website/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/personal-website/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="system">
+    <img class="theme-icon" src="/personal-website/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+  
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+  
+  
+</nav>
+
+
+
+      
+      
+<section class="sidebar-section" id="sidebar-section">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <form class="mx-auto" method="get" action="/personal-website/search">
+        <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+      </form>
+      <div class="sidebar-tree">
+        <ul class="tree" id="tree">
+          <li id="list-heading"><a href="/posts/" data-filter="all">Posts</a></li>
+          <div class="subtree">
+            
+
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      
+      <div class="hero-area col-sm-12" id="hero-area"
+        style='background-image: url(/personal-website/images/default-hero_hu_1e630a6e35d8e16.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/personal-website/images/default-avatar_hu_e0c58a0ddb1fecc.png' alt="Author Image">
+          <h5 class="author-name"></h5>
+          <p class="text-muted">
+            2026年7月7日星期二
+             | 
+            1minute</p>
+        </div>
+        
+
+        <div class="title">
+          <h1>新一代 AI 客服 Agent 方案设计</h1>
+        </div>
+
+        
+
+        
+        <div class="post-content" id="post-content">
+          <h2 id="项目概述">项目概述</h2>
+<p>承接公司传统 DI 客服智能化替换项目，负责全新大模型 Agent 客服体系的从 0 到 1 核心设计工作。</p>
+<h2 id="我的角色">我的角色</h2>
+<p>AI 产品经理 — 全案方案设计、意图拆解、规范定义</p>
+<h2 id="核心方案">核心方案</h2>
+<ol>
+<li><strong>架构升级</strong>: 区别于传统固定工作流，搭建模块化智能体架构，以提升用户沟通体验、提高客户留资转化为核心目标</li>
+<li><strong>意图域拆解</strong>: 完成全量用户 Query 场景拆解，枚举业务全场景意图域，划分不同意图的应答边界、工具调用权限，规避智能体乱应答、越权应答问题</li>
+<li><strong>规范体系</strong>: 遵循标准化 Agent 开发规范，拆分模块化文档体系，独立完成角色职责文档、工具调用规范文档的内容梳理与落地定义</li>
+</ol>
+<h2 id="成果">成果</h2>
+<ul>
+<li>完成 Agent 客服从 0 到 1 的完整方案设计</li>
+<li>建立规范化的话术应答体系</li>
+<li>替代老旧规则化客服系统</li>
+</ul>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+          
+          <div class="col-md-6 share-buttons">
+            
+          </div>
+
+          
+          
+          
+          
+          
+          <div class="col-md-6 btn-improve-page">
+             
+                <a href="https://github.com/tonton-520/personal-website/edit/main/content/zh%5cprojects%5cproject2.md"
+                  title="Improve this page" target="_blank" rel="noopener">
+                  
+                  <i class="fas fa-code-branch"></i>
+                  Improve this page
+                </a>
+          </div>
+          
+        </div>
+
+
+
+        
+        <hr />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        <hr />
+
+        
+        
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+
+      
+      
+<section class="toc-section" id="toc-section">
+  
+</section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-start">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://tonton-520.github.io/personal-website/#about">关于我</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://tonton-520.github.io/personal-website/#experiences">工作经历</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://tonton-520.github.io/personal-website/#projects">项目经验</a>
+                </li>
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:your-email@example.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>your-email@example.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=tel: target="_blank" rel="noopener">
+                  <span><i class="fas fa-phone-alt"></i></span> <span></span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+          
+          <div class="col-md-4 col-sm-12">
+            <p>Stay up to date with email notification</p>
+            
+              <form method='post' action='https://blogtrottr.com'>
+              <div class="form-group">
+              <input type='email' class="form-control" name='btr_email' placeholder="Enter email"/><br />
+              <input type='hidden' name='btr_url' value='https://tonton-520.github.io/personal-website//index.xml' />
+              <input type='hidden' name='schedule_type' value='1' />
+              <small id="emailHelp" class="form-text text-muted">By entering your email address, you agree to receive the newsletter of this website.</small>
+              <button type="submit" class="btn btn-info"> Submit </button>
+              </div>
+              </form>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-start">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/personal-website/images/theme-logo_hu_be7279b2506ad3f1.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2026 Copyright.</div>
+        <div class="col-md-4 text-end">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/personal-website/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/personal-website/application.d09c958b63b27cb965527cf24b0748a9258a645cfe72562ec341757e8039ad0d.js" integrity="sha256-0JyVi2OyfLllUnzySwdIqSWKZFz&#43;clYuw0F1foA5rQ0=" defer></script>
+
+
+    
+     
+
+    
+</body>
+</html>
