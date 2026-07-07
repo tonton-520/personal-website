@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 刘彤 - AI 产品经理</title>
-    <link>https://tonton-520.github.io/posts/</link>
+    <link>https://tonton-520.github.io/personal-website/posts/</link>
     <description>Recent content in Posts on 刘彤 - AI 产品经理</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language><atom:link href="https://tonton-520.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language><atom:link href="https://tonton-520.github.io/personal-website/posts/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

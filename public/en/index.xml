@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ens on 刘彤 - AI 产品经理</title>
-    <link>https://tonton-520.github.io/en/</link>
+    <link>https://tonton-520.github.io/personal-website/en/</link>
     <description>Recent content in Ens on 刘彤 - AI 产品经理</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://tonton-520.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://tonton-520.github.io/personal-website/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>https://tonton-520.github.io/en/about/</link>
+      <link>https://tonton-520.github.io/personal-website/en/about/</link>
       <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://tonton-520.github.io/en/about/</guid>
+      <guid>https://tonton-520.github.io/personal-website/en/about/</guid>
       <description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;
 &lt;p&gt;AI Product Manager · Results-Driven · Practical&lt;/p&gt;
 &lt;p&gt;Master&amp;rsquo;s graduate with 8 months of hands-on AI product experience in the real estate vertical, specializing in LLM application layer product development. Proficient in no-code AI platform workflow design, agent decomposition, and multi-dimensional user profiling and memory systems.&lt;/p&gt;
@@ -27,28 +27,28 @@
     
     <item>
       <title>Agent Memory System &amp; Multi-Dimensional Profiling</title>
-      <link>https://tonton-520.github.io/en/projects/project3/</link>
+      <link>https://tonton-520.github.io/personal-website/en/projects/project3/</link>
       <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://tonton-520.github.io/en/projects/project3/</guid>
+      <guid>https://tonton-520.github.io/personal-website/en/projects/project3/</guid>
       <description>Designed a 4-dimensional profiling system with data governance rules to power personalized agent memory</description>
     </item>
     
     <item>
       <title>Business AI Tools &amp; Customer Service Iteration</title>
-      <link>https://tonton-520.github.io/en/projects/project1/</link>
+      <link>https://tonton-520.github.io/personal-website/en/projects/project1/</link>
       <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://tonton-520.github.io/en/projects/project1/</guid>
+      <guid>https://tonton-520.github.io/personal-website/en/projects/project1/</guid>
       <description>Built AI Skills on low-code platform and optimized customer service dialogue for improved lead conversion</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>https://tonton-520.github.io/en/contact/</link>
+      <link>https://tonton-520.github.io/personal-website/en/contact/</link>
       <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://tonton-520.github.io/en/contact/</guid>
+      <guid>https://tonton-520.github.io/personal-website/en/contact/</guid>
       <description>&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
 &lt;p&gt;Thank you for your interest! Feel free to reach out:&lt;/p&gt;
 &lt;ul&gt;
@@ -59,10 +59,10 @@
     
     <item>
       <title>Next-Gen AI Customer Service Agent Design</title>
-      <link>https://tonton-520.github.io/en/projects/project2/</link>
+      <link>https://tonton-520.github.io/personal-website/en/projects/project2/</link>
       <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://tonton-520.github.io/en/projects/project2/</guid>
+      <guid>https://tonton-520.github.io/personal-website/en/projects/project2/</guid>
       <description>Designed a new LLM-powered Agent customer service system from scratch to replace legacy DI workflows</description>
     </item>
     

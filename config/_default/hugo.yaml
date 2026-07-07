@@ -1,5 +1,5 @@
-baseURL: "https://tonton-520.github.io/"
-locale: zh
+baseURL: "https://tonton-520.github.io/personal-website/"
+locale: zh-CN
 title: "刘彤 - AI 产品经理"
 
 module:
