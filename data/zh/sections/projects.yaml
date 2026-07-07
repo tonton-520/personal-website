@@ -1,0 +1,40 @@
+section:
+  name: 项目经验
+  id: projects
+  enable: true
+  weight: 3
+  showOnNavbar: true
+buttons:
+- name: 全部
+  filter: "all"
+- name: AI 产品
+  filter: "ai-product"
+- name: Agent
+  filter: "agent"
+- name: 数据
+  filter: "data"
+projects:
+- name: 业务 AI 工具搭建与客服迭代
+  logo: ""
+  role: AI 产品经理
+  timeline: "2025.12 - 2026.04"
+  url: "/zh/projects/project1/"
+  summary: "基于低代码 AI 平台搭建多款 AI Skill，优化客服对话体系"
+  tags:
+  - "AI Product"
+- name: 新一代 AI 客服 Agent 方案设计
+  logo: ""
+  role: AI 产品经理
+  timeline: "2026.04 - 2026.06"
+  url: "/zh/projects/project2/"
+  summary: "从 0 到 1 设计大模型 Agent 客服体系，替代传统 DI 工作流"
+  tags:
+  - "Agent"
+- name: Agent 记忆系统 & 画像体系搭建
+  logo: ""
+  role: AI 产品经理
+  timeline: "2026.06 - 至今"
+  url: "/zh/projects/project3/"
+  summary: "设计四维画像体系与数据治理规则，为通用 Agent 提供个性化记忆能力"
+  tags:
+  - "Data"

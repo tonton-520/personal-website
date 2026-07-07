@@ -1,22 +1,11 @@
 baseURL: "https://tonton-520.github.io/"
-locale: zh-CN
+locale: zh
 title: "刘彤 - AI 产品经理"
 
-# Hugo Module
 module:
   imports:
     - path: "github.com/hugo-toha/toha/v4"
 
-# Languages
-languages:
-  zh:
-    label: "中文"
-    weight: 1
-  en:
-    label: "English"
-    weight: 2
-
-# Output formats
 outputs:
   home:
     - HTML
@@ -32,72 +21,21 @@ markup:
 enableEmoji: true
 
 params:
-  # Site info
   gitRepo: "https://github.com/tonton-520/personal-website"
   gitBranch: "main"
-  gitRepoIcon: "fa-brands fa-github"
 
-  # Enable blog
-  enableBlogPost: true
-  enableTOC: true
-
-  # Author
-  author:
-    name: "刘彤"
-    image: "images/avatar.jpg"
-    headline: "AI 产品经理 · 懂落地 · 有成果"
-    bio: "硕士应届生，8个月垂直行业AI产品落地经验，深耕大模型应用层产品搭建"
-    contactInfo:
-      email: "your-email@example.com"
-    summary:
-      - "落地型 AI 产品"
-      - "架构认知超前"
-      - "业务结果导向"
-      - "成长速度快"
-
-  # Home sections order
-  homeSections:
-    order:
-      - about
-      - experience
-      - projects
-      - recent-posts
-      - contact
-
-  # Background - use empty to disable
-  background: ""
-
-  featuresDarkMode: true
-  featuresPortrait: false
-  featuresSearch: true
+  features:
+    theme:
+      enable: true
+      services:
+        light: true
+        dark: true
+        default: light
 
   topNavbar:
-    enableLanguageSelector: true
+    maxVisibleSections: 5
 
   footer:
     enable: true
-    copyright: "© 2026 刘彤. All rights reserved."
 
-# Navigation
-menu:
-  main:
-    - identifier: "about"
-      name: "关于我"
-      url: "/about/"
-      weight: 1
-    - identifier: "experience"
-      name: "经历"
-      url: "/experience/"
-      weight: 2
-    - identifier: "projects"
-      name: "项目"
-      url: "/projects/"
-      weight: 3
-    - identifier: "posts"
-      name: "文章"
-      url: "/posts/"
-      weight: 4
-    - identifier: "contact"
-      name: "联系"
-      url: "/contact/"
-      weight: 5
+  featuresDarkMode: true

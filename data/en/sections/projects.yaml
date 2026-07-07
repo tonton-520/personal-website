@@ -1,0 +1,40 @@
+section:
+  name: Projects
+  id: projects
+  enable: true
+  weight: 3
+  showOnNavbar: true
+buttons:
+- name: All
+  filter: "all"
+- name: AI Product
+  filter: "ai-product"
+- name: Agent
+  filter: "agent"
+- name: Data
+  filter: "data"
+projects:
+- name: Business AI Tools & Customer Service
+  logo: ""
+  role: AI Product Manager
+  timeline: "2025.12 - 2026.04"
+  url: "/en/projects/project1/"
+  summary: "Built AI Skills on low-code platform, optimized customer service"
+  tags:
+  - "AI Product"
+- name: Next-Gen AI Customer Service Agent
+  logo: ""
+  role: AI Product Manager
+  timeline: "2026.04 - 2026.06"
+  url: "/en/projects/project2/"
+  summary: "Designed LLM-powered Agent customer service from scratch"
+  tags:
+  - "Agent"
+- name: Agent Memory System & Profiling
+  logo: ""
+  role: AI Product Manager
+  timeline: "2026.06 - Present"
+  url: "/en/projects/project3/"
+  summary: "Designed 4-dimensional profiling system with data governance"
+  tags:
+  - "Data"

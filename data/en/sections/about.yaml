@@ -1,0 +1,8 @@
+section:
+  name: About
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+designation: AI Product Manager
+summary: "Master's graduate with 8 months of hands-on AI product experience."

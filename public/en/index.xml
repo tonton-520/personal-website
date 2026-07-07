@@ -5,7 +5,7 @@
     <link>https://tonton-520.github.io/en/</link>
     <description>Recent content in Ens on 刘彤 - AI 产品经理</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>zh</language>
     <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://tonton-520.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
@@ -41,6 +41,20 @@
       
       <guid>https://tonton-520.github.io/en/projects/project1/</guid>
       <description>Built AI Skills on low-code platform and optimized customer service dialogue for improved lead conversion</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://tonton-520.github.io/en/contact/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://tonton-520.github.io/en/contact/</guid>
+      <description>&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
+&lt;p&gt;Thank you for your interest! Feel free to reach out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Email&lt;/strong&gt;: &lt;a href=&#34;mailto:your-email@example.com&#34;&gt;your-email@example.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href=&#34;https://github.com/tonton-520&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tonton-520&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
