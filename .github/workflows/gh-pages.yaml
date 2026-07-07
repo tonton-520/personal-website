@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.164.0'
+          extended: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install npm dependencies
+        run: |
+          npm install
+          npm install bootstrap@^5.3.3 @fontsource/mulish@4.5.13 @fortawesome/fontawesome-free@^6.6.0 include-media@^1.4.10 feather-icons@^4.29.1 filterizr@^2.2.4 flag-icons@^7.2.3 fuse.js@^6.6.2 highlight.js@^11.6.0 imagesloaded@^5.0.0 katex@^0.16.11 mark.js@^8.11.1 mermaid@^11.15.0 plyr@^3.7.2 popper.js@^1.16.1 typeit@^8.8.7
+
+      - name: Build with Hugo
+        run: hugo --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
