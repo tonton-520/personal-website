@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刘彤 — AI 产品经理</title>
+<meta name="description" content="AI 产品经理，10 个月从 0 到 1 搭建 Agent 平台 6 款核心 Skill 与 B 端 AI 功能体系。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--ink:#0D1B2A;
+--paper:#F5F7FA;
+--amber:#FFB627;
+--steel:#415A77;
+--mist:#778DA9;
+--line:#D8DFE8;
+--card:#FFFFFF;
+--navy-deep:#070F1A;
+--navy-soft:#13283D;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+font-family:'Noto Sans SC',sans-serif;
+background:var(--paper);
+color:var(--ink);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+::selection{background:var(--amber);color:var(--navy-deep)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ── Nav ── */
+.nav{
+position:fixed;top:0;left:0;right:0;z-index:100;
+background:rgba(245,247,250,0.85);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--line);
+transition:padding .3s;
+}
+.nav__inner{
+max-width:1100px;margin:0 auto;
+display:flex;align-items:center;justify-content:space-between;
+padding:18px 32px;
+}
+.nav__brand{
+font-family:'Noto Serif SC',serif;
+font-weight:700;font-size:1.1rem;
+letter-spacing:0.02em;
+}
+.nav__brand span{color:var(--amber)}
+.nav__links{display:flex;gap:28px;list-style:none}
+.nav__links a{
+font-size:.875rem;font-weight:500;
+color:var(--steel);
+transition:color .2s;
+position:relative;
+}
+.nav__links a::after{
+content:'';position:absolute;bottom:-4px;left:0;
+width:0;height:2px;background:var(--amber);
+transition:width .25s;
+}
+.nav__links a:hover{color:var(--ink)}
+.nav__links a:hover::after{width:100%}
+.nav__toggle{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--ink)}
+
+/* ── Hero ── */
+.hero{
+min-height:100vh;display:flex;align-items:center;
+position:relative;overflow:hidden;
+padding:120px 32px 80px;
+}
+.hero__bg{
+position:absolute;inset:0;z-index:0;
+background:
+radial-gradient(ellipse 80% 50% at 20% 30%,rgba(65,90,119,0.06),transparent),
+radial-gradient(ellipse 60% 40% at 80% 70%,rgba(255,182,39,0.05),transparent);
+}
+.hero__bg svg{
+position:absolute;top:0;left:0;width:100%;height:100%;
+opacity:0.35;
+}
+.hero__inner{
+position:relative;z-index:1;
+max-width:1100px;margin:0 auto;width:100%;
+display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;
+}
+.hero__eyebrow{
+font-family:'JetBrains Mono',monospace;
+font-size:.75rem;letter-spacing:0.15em;text-transform:uppercase;
+color:var(--mist);margin-bottom:20px;
+}
+.hero__eyebrow::before{content:'— ';color:var(--amber)}
+.hero__title{
+font-family:'Noto Serif SC',serif;
+font-weight:900;font-size:clamp(2.8rem,6vw,4.5rem);
+line-height:1.1;letter-spacing:-0.02em;
+margin-bottom:16px;
+}
+.hero__title em{
+font-style:normal;
+background:linear-gradient(120deg,var(--amber),#FF9500);
+-webkit-background-clip:text;background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.hero__subtitle{
+font-size:1.125rem;font-weight:400;
+color:var(--steel);margin-bottom:32px;
+max-width:480px;
+}
+.hero__meta{
+display:flex;gap:24px;flex-wrap:wrap;margin-bottom:36px;
+}
+.hero__meta-item{
+display:flex;align-items:center;gap:8px;
+font-size:.875rem;color:var(--mist);
+}
+.hero__meta-item svg{width:16px;height:16px;color:var(--amber)}
+.hero__cta{display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+display:inline-flex;align-items:center;gap:8px;
+padding:14px 28px;border-radius:6px;
+font-size:.9rem;font-weight:500;
+transition:all .2s;cursor:pointer;
+}
+.btn--primary{
+background:var(--ink);color:var(--paper);
+}
+.btn--primary:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,27,42,0.18)}
+.btn--ghost{
+background:transparent;color:var(--ink);
+border:1.5px solid var(--line);
+}
+.btn--ghost:hover{border-color:var(--ink);background:var(--card)}
+
+/* Hero metric card */
+.hero__metric{
+background:var(--card);border:1px solid var(--line);
+border-radius:16px;padding:36px 32px;
+box-shadow:0 4px 32px rgba(13,27,42,0.06);
+position:relative;overflow:hidden;
+}
+.hero__metric::before{
+content:'';position:absolute;top:0;left:0;right:0;height:3px;
+background:linear-gradient(90deg,var(--amber),#FF9500);
+}
+.hero__metric-label{
+font-family:'JetBrains Mono',monospace;
+font-size:.7rem;letter-spacing:0.1em;text-transform:uppercase;
+color:var(--mist);margin-bottom:12px;
+}
+.hero__metric-value{
+font-family:'Noto Serif SC',serif;
+font-weight:700;font-size:3rem;
+line-height:1;color:var(--ink);
+margin-bottom:8px;
+}
+.hero__metric-value span{color:var(--amber)}
+.hero__metric-desc{
+font-size:.875rem;color:var(--steel);
+margin-bottom:24px;
+}
+.hero__metric-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.hero__metric-list li{
+display:flex;justify-content:space-between;align-items:baseline;
+font-size:.875rem;
+}
+.hero__metric-list li span:first-child{color:var(--mist)}
+.hero__metric-list li span:last-child{
+font-family:'JetBrains Mono',monospace;font-weight:600;
+color:var(--ink);
+}
+
+/* ── Section base ── */
+.section{padding:100px 32px;position:relative}
+.section__inner{max-width:1100px;margin:0 auto}
+.section__header{margin-bottom:56px}
+.section__eyebrow{
+font-family:'JetBrains Mono',monospace;
+font-size:.7rem;letter-spacing:0.15em;text-transform:uppercase;
+color:var(--amber);margin-bottom:12px;
+display:flex;align-items:center;gap:12px;
+}
+.section__eyebrow::before{
+content:'';width:32px;height:1.5px;background:var(--amber);
+}
+.section__title{
+font-family:'Noto Serif SC',serif;
+font-weight:700;font-size:clamp(1.8rem,3.5vw,2.5rem);
+line-height:1.2;letter-spacing:-0.01em;
+}
+
+/* ── About ── */
+.about{background:var(--card)}
+.about__grid{
+display:grid;grid-template-columns:1fr 1fr;gap:48px;
+}
+.about__text p{margin-bottom:16px;color:var(--steel);font-size:1rem}
+.about__text strong{color:var(--ink)}
+.about__highlights{
+display:flex;flex-direction:column;gap:20px;
+}
+.about__highlight{
+padding:24px;border:1px solid var(--line);border-radius:12px;
+transition:all .2s;
+}
+.about__highlight:hover{border-color:var(--amber);transform:translateY(-2px)}
+.about__highlight h4{
+font-family:'Noto Serif SC',serif;
+font-size:1rem;font-weight:600;margin-bottom:8px;
+display:flex;align-items:center;gap:10px;
+}
+.about__highlight h4::before{
+content:'';width:6px;height:6px;border-radius:50%;background:var(--amber);
+}
+.about__highlight p{font-size:.875rem;color:var(--mist)}
+
+/* ── Skills ── */
+.skills__grid{
+display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+}
+.skill-card{
+background:var(--card);border:1px solid var(--line);border-radius:12px;
+padding:32px;transition:all .25s;
+}
+.skill-card:hover{
+border-color:var(--steel);
+box-shadow:0 8px 32px rgba(13,27,42,0.08);
+}
+.skill-card__icon{
+width:40px;height:40px;border-radius:8px;
+display:flex;align-items:center;justify-content:center;
+font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1rem;
+background:var(--navy-soft);color:var(--amber);
+margin-bottom:20px;
+}
+.skill-card__title{
+font-family:'Noto Serif SC',serif;
+font-weight:600;font-size:1.125rem;margin-bottom:16px;
+}
+.skill-card__tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+display:inline-block;
+padding:6px 14px;border-radius:20px;
+font-size:.75rem;font-weight:500;
+background:rgba(65,90,119,0.08);color:var(--steel);
+transition:all .2s;
+}
+.tag:hover{background:var(--amber);color:var(--navy-deep)}
+
+/* ── Experience ── */
+.experience{background:var(--card)}
+.experience__item{
+display:grid;grid-template-columns:180px 1fr;gap:32px;
+padding:40px 0;border-bottom:1px solid var(--line);
+}
+.experience__item:last-child{border-bottom:none}
+.experience__period{
+font-family:'JetBrains Mono',monospace;
+font-size:.8rem;color:var(--mist);
+}
+.experience__company{
+font-weight:500;font-size:.875rem;color:var(--steel);
+margin-top:4px;
+}
+.experience__role{
+font-family:'Noto Serif SC',serif;
+font-weight:600;font-size:1.25rem;margin-bottom:16px;
+}
+.experience__highlights{list-style:none}
+.experience__highlights li{
+padding:12px 0 12px 24px;
+position:relative;
+font-size:.875rem;color:var(--steel);
+border-bottom:1px dashed var(--line);
+}
+.experience__highlights li:last-child{border-bottom:none}
+.experience__highlights li::before{
+content:'';position:absolute;left:0;top:20px;
+width:8px;height:1.5px;background:var(--amber);
+}
+.experience__highlights strong{color:var(--ink);font-weight:600}
+.experience__metrics{
+display:flex;gap:24px;flex-wrap:wrap;margin-top:16px;
+}
+.experience__metric{
+background:rgba(255,182,39,0.08);
+border:1px solid rgba(255,182,39,0.2);
+border-radius:8px;padding:10px 18px;
+}
+.experience__metric span{
+display:block;font-family:'JetBrains Mono',monospace;
+font-weight:700;font-size:1.1rem;color:var(--ink);
+}
+.experience__metric small{
+font-size:.7rem;color:var(--mist);
+}
+
+/* ── Projects ── */
+.project-card{
+background:var(--card);border:1px solid var(--line);border-radius:16px;
+overflow:hidden;margin-bottom:24px;
+transition:all .25s;
+}
+.project-card:hover{
+border-color:var(--steel);
+box-shadow:0 12px 40px rgba(13,27,42,0.08);
+}
+.project-card__header{
+display:flex;justify-content:space-between;align-items:start;
+padding:32px 32px 0;
+}
+.project-card__title{
+font-family:'Noto Serif SC',serif;
+font-weight:600;font-size:1.25rem;margin-bottom:8px;
+}
+.project-card__period{
+font-family:'JetBrains Mono',monospace;
+font-size:.75rem;color:var(--mist);
+white-space:nowrap;
+}
+.project-card__tags{
+display:flex;gap:8px;flex-wrap:wrap;
+padding:0 32px 20px;
+}
+.project-card__body{
+padding:0 32px 32px;
+}
+.project-card__section{
+padding:16px 0;border-top:1px solid var(--line);
+}
+.project-card__section h5{
+font-size:.75rem;font-weight:600;text-transform:uppercase;
+letter-spacing:0.08em;color:var(--amber);margin-bottom:8px;
+}
+.project-card__section p{
+font-size:.875rem;color:var(--steel);
+}
+.project-card__metrics{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;
+margin-top:16px;
+}
+.project-metric{
+background:var(--paper);border-radius:8px;padding:16px;
+text-align:center;
+}
+.project-metric span{
+display:block;font-family:'JetBrains Mono',monospace;
+font-weight:700;font-size:1.5rem;color:var(--ink);
+}
+.project-metric small{
+font-size:.7rem;color:var(--mist);
+}
+
+/* ── Education ── */
+.education{background:var(--card)}
+.education__grid{
+display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+}
+.edu-card{
+border:1px solid var(--line);border-radius:12px;padding:32px;
+transition:all .2s;
+}
+.edu-card:hover{border-color:var(--amber)}
+.edu-card__degree{
+font-family:'JetBrains Mono',monospace;
+font-size:.75rem;color:var(--amber);
+text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;
+}
+.edu-card__school{
+font-family:'Noto Serif SC',serif;
+font-weight:600;font-size:1.125rem;margin-bottom:4px;
+}
+.edu-card__major{font-size:.875rem;color:var(--steel);margin-bottom:12px}
+.edu-card__period{font-size:.75rem;color:var(--mist)}
+
+/* ── Contact ── */
+.contact{
+background:var(--navy-deep);color:var(--paper);
+text-align:center;padding:100px 32px;
+}
+.contact__title{
+font-family:'Noto Serif SC',serif;
+font-weight:700;font-size:clamp(1.8rem,4vw,2.5rem);
+margin-bottom:16px;
+}
+.contact__title em{font-style:normal;color:var(--amber)}
+.contact__desc{color:var(--mist);margin-bottom:40px;font-size:1rem}
+.contact__links{
+display:flex;justify-content:center;gap:16px;flex-wrap:wrap;
+}
+.contact__link{
+display:flex;align-items:center;gap:10px;
+padding:14px 28px;border-radius:8px;
+background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+font-size:.875rem;transition:all .2s;
+}
+.contact__link:hover{
+background:var(--amber);color:var(--navy-deep);border-color:var(--amber);
+transform:translateY(-2px);
+}
+.contact__link svg{width:18px;height:18px}
+.footer{
+background:var(--navy-deep);color:var(--mist);
+text-align:center;padding:32px;font-size:.8rem;
+border-top:1px solid rgba(255,255,255,0.06);
+}
+
+/* ── Reveal animation ── */
+.reveal{
+opacity:0;transform:translateY(30px);
+transition:opacity .6s ease,transform .6s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+.nav__links{display:none}
+.nav__toggle{display:block}
+.hero__inner{grid-template-columns:1fr;gap:40px}
+.about__grid{grid-template-columns:1fr}
+.skills__grid{grid-template-columns:1fr}
+.experience__item{grid-template-columns:1fr;gap:12px}
+.education__grid{grid-template-columns:1fr}
+.project-card__header{flex-direction:column;gap:8px}
+.section{padding:64px 20px}
+.hero{padding:100px 20px 60px}
+}
+@media(prefers-reduced-motion:reduce){
+*{animation:none!important;transition:none!important}
+.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ Nav ═══ -->
+<nav class="nav">
+<div class="nav__inner">
+<div class="nav__brand">刘彤<span>.</span></div>
+<ul class="nav__links">
+<li><a href="#about">关于</a></li>
+<li><a href="#skills">能力</a></li>
+<li><a href="#experience">经历</a></li>
+<li><a href="#projects">项目</a></li>
+<li><a href="#education">教育</a></li>
+<li><a href="#contact">联系</a></li>
+</ul>
+<button class="nav__toggle" aria-label="菜单">☰</button>
+</div>
+</nav>
+
+<!-- ═══ Hero ═══ -->
+<section class="hero" id="home">
+<div class="hero__bg">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<g stroke="#415A77" stroke-width="0.5" fill="none" opacity="0.4">
+<circle cx="200" cy="200" r="3"/>
+<circle cx="400" cy="150" r="3"/>
+<circle cx="600" cy="250" r="3"/>
+<circle cx="300" cy="400" r="3"/>
+<circle cx="500" cy="500" r="3"/>
+<circle cx="700" cy="350" r="3"/>
+<circle cx="900" cy="200" r="3"/>
+<circle cx="1000" cy="450" r="3"/>
+<circle cx="800" cy="600" r="3"/>
+<line x1="200" y1="200" x2="400" y2="150"/>
+<line x1="400" y1="150" x2="600" y2="250"/>
+<line x1="200" y1="200" x2="300" y2="400"/>
+<line x1="300" y1="400" x2="500" y2="500"/>
+<line x1="600" y1="250" x2="700" y2="350"/>
+<line x1="500" y1="500" x2="700" y2="350"/>
+<line x1="700" y1="350" x2="900" y2="200"/>
+<line x1="700" y1="350" x2="800" y2="600"/>
+<line x1="900" y1="200" x2="1000" y2="450"/>
+<line x1="800" y1="600" x2="1000" y2="450"/>
+</g>
+</svg>
+</div>
+<div class="hero__inner">
+<div>
+<div class="hero__eyebrow">AI Product Manager · Shenzhen</div>
+<h1 class="hero__title">用 AI 重新定义<br><em>产品边界</em></h1>
+<p class="hero__subtitle">10 个月从 0 到 1 搭建 Agent 平台 6 款核心 Skill，覆盖 3000+ 经纪人，带动月营收增长 5%。</p>
+<div class="hero__meta">
+<div class="hero__meta-item">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+<span>深圳</span>
+</div>
+<div class="hero__meta-item">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+<span>1983750655@qq.com</span>
+</div>
+<div class="hero__meta-item">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5a3.5 3.5 0 0 0-3.5-3.5h-1C7 15 5 13 5 8.5a3.5 3.5 0 0 1 7-1V4a3.5 3.5 0 0 1 7 0v4.5"/></svg>
+<span>188-4006-0580</span>
+</div>
+</div>
+<div class="hero__cta">
+<a href="#projects" class="btn btn--primary">查看项目</a>
+<a href="#contact" class="btn btn--ghost">联系我</a>
+</div>
+</div>
+<div class="hero__metric reveal">
+<div class="hero__metric-label">Key Impact</div>
+<div class="hero__metric-value"><span>3000+</span> 经纪人</div>
+<div class="hero__metric-desc">Agent 平台 Skill 矩阵累计覆盖用户</div>
+<ul class="hero__metric-list">
+<li><span>月营收增长</span><span>+5%</span></li>
+<li><span>周活跃用户</span><span>200 → 600</span></li>
+<li><span>AI 留资率</span><span>6% → 16.25%</span></li>
+<li><span>日均内容产出</span><span>200 → 2000</span></li>
+<li><span>投放效率</span><span>30min → 5min</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ═══ About ═══ -->
+<section class="section about" id="about">
+<div class="section__inner">
+<div class="section__header reveal">
+<div class="section__eyebrow">About</div>
+<h2 class="section__title">落地型 AI 产品经理</h2>
+</div>
+<div class="about__grid">
+<div class="about__text reveal">
+<p><strong>刘彤</strong>，AI 产品经理，硕士毕业于沈阳航空航天大学设计学（人机与交互方向）。</p>
+<p>10 个月垂直行业 AI 产品落地经验，深耕大模型应用层产品搭建。熟练掌握低代码 AI 平台工作流设计、智能体从 0 到 1 拆解、多维度用户画像与记忆系统梳理。</p>
+<p>区别于纯提示词优化的入门产品，具备<strong>业务拆解 → 规则建模 → 工具封装 → 数据治理 → 落地迭代</strong>的完整 AI 应用思维。擅长将复杂业务规则转化为可落地的 AI 能力，曾通过客服 AI 迭代实现业务留资转化正向提升。</p>
+<p>坚持月均线下用户调研驱动产品决策，月双迭代从未延期。人人都是产品经理认证作者，累计阅读量 1.2 万+。</p>
+</div>
+<div class="about__highlights reveal">
+<div class="about__highlight">
+<h4>落地型 AI 产品</h4>
+<p>无纸上谈兵经验，所有能力均来自真实业务落地，懂大模型应用痛点、算力损耗、模型幻觉问题</p>
+</div>
+<div class="about__highlight">
+<h4>架构认知超前</h4>
+<p>入职 7 个月即完成从传统 AI 工作流到模块化 Agent、底层记忆数据底座的能力进阶</p>
+</div>
+<div class="about__highlight">
+<h4>业务结果导向</h4>
+<p>具备可量化业务转化成果，既懂产品设计，也懂商业转化</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ Skills ═══ -->
+<section class="section" id="skills">
+<div class="section__inner">
+<div class="section__header reveal">
+<div class="section__eyebrow">Skills</div>
+<h2 class="section__title">能力矩阵</h2>
+</div>
+<div class="skills__grid">
+<div class="skill-card reveal">
+<div class="skill-card__icon">AI</div>
+<h3 class="skill-card__title">AI 产品能力</h3>
+<div class="skill-card__tags">
+<span class="tag">Agent 智能体设计</span>
+<span class="tag">Dify 工作流编排</span>
+<span class="tag">AI Skill 设计</span>
+<span class="tag">Prompt Engineering</span>
+<span class="tag">Function Calling</span>
+<span class="tag">意图分类与场景划分</span>
+<span class="tag">RAG 体系</span>
+<span class="tag">标签与数据治理</span>
+</div>
+</div>
+<div class="skill-card reveal">
+<div class="skill-card__icon">PM</div>
+<h3 class="skill-card__title">产品方法论</h3>
+<div class="skill-card__tags">
+<span class="tag">用户调研（线下访谈+问卷）</span>
+<span class="tag">需求文档 PRD</span>
+<span class="tag">AB 测试设计与复盘</span>
+<span class="tag">数据埋点设计</span>
+<span class="tag">评价体系搭建</span>
+</div>
+</div>
+<div class="skill-card reveal">
+<div class="skill-card__icon">T</div>
+<h3 class="skill-card__title">工具与技术</h3>
+<div class="skill-card__tags">
+<span class="tag">Dify</span>
+<span class="tag">Coze</span>
+<span class="tag">Postman</span>
+<span class="tag">Python</span>
+<span class="tag">SQL</span>
+<span class="tag">Figma</span>
+<span class="tag">ProcessOn</span>
+<span class="tag">Xmind</span>
+</div>
+</div>
+<div class="skill-card reveal">
+<div class="skill-card__icon">C</div>
+<h3 class="skill-card__title">证书与认证</h3>
+<div class="skill-card__tags">
+<span class="tag">IBM AI 产品经理证书</span>
+<span class="tag">英语 CET-6</span>
+<span class="tag">人人都是产品经理认证作者</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ Experience ═══ -->
+<section class="section experience" id="experience">
+<div class="section__inner">
+<div class="section__header reveal">
+<div class="section__eyebrow">Experience</div>
+<h2 class="section__title">工作经历</h2>
+</div>
+<div class="experience__item reveal">
+<div>
+<div class="experience__period">2025.11 — 2026.08</div>
+<div class="experience__company">深圳乐有家控股有限公司</div>
+</div>
+<div>
+<h3 class="experience__role">AI 产品经理</h3>
+<ul class="experience__highlights">
+<li><strong>Agent 平台 Skill 矩阵设计</strong> — 面向内部经纪人 Agent 平台，独立设计 6 款核心 Skill：钻石展位投放、房源新媒体营销内容生成（覆盖小红书/抖音/讲房口播/朋友圈/小区点评等 8 种文案类型 + 海报生成 + 账号诊断 + 敏感词检测，上线首月使用人数突破 2000 人）、房源价值分析报告、合作找人沟通、业务规则计算、复杂政策判定。</li>
+<li><strong>B 端系统 AI 功能建设</strong> — 基于 Dify 从 0 搭建 20+ 条自动化工作流，覆盖房源内容生成、智能客服、营销文案、资料识别、商业报告等场景。房源内容线独立完成大模型选型、Prompt 调优与埋点设计，描述模块上线两月带来 2200+ 进线。客服系统优化后 AI 独立留资率由 6% 提升至 16.25%。</li>
+<li><strong>产品方法论与数据闭环</strong> — 从 0 搭建公司首个 AI 内容评价体系（标签评价 + 文字评价 + B 端看板），上线两月累计 200 条自来水评价，好评率 84%，框架被客源部门复用。设计 6 大客户分群 × 个性化文案标签 AB 测试（覆盖 2 万套房源），全流程遵循月双迭代节奏，所有需求均按期上线无延期。</li>
+</ul>
+<div class="experience__metrics">
+<div class="experience__metric"><span>3000+</span><small>Skill 覆盖经纪人</small></div>
+<div class="experience__metric"><span>+5%</span><small>月营收增长</small></div>
+<div class="experience__metric"><span>20+</span><small>Dify 工作流</small></div>
+<div class="experience__metric"><span>84%</span><small>AI 内容好评率</small></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ Projects ═══ -->
+<section class="section" id="projects">
+<div class="section__inner">
+<div class="section__header reveal">
+<div class="section__eyebrow">Projects</div>
+<h2 class="section__title">核心项目</h2>
+</div>
+
+<!-- Project 1 -->
+<div class="project-card reveal">
+<div class="project-card__header">
+<div>
+<h3 class="project-card__title">经纪人 AI Agent 平台 — Skill 矩阵设计</h3>
+</div>
+<div class="project-card__period">2025.12 — 2026.08</div>
+</div>
+<div class="project-card__tags">
+<span class="tag">Agent 智能体</span>
+<span class="tag">AI Skill 设计</span>
+<span class="tag">用户调研</span>
+<span class="tag">需求显化</span>
+<span class="tag">产品闭环</span>
+</div>
+<div class="project-card__body">
+<div class="project-card__section">
+<h5>项目背景</h5>
+<p>公司自研 Agent 平台上线初期，经纪人作业高度依赖手动操作——钻石展位投放、跨部门合作匹配、业务规则查询等环节耗时严重，平台缺乏 Agent 可调用的能力供给，周活跃用户仅 200 人。</p>
+</div>
+<div class="project-card__section">
+<h5>需求调研</h5>
+<p>坚持月均线下用户调研，以钻石展位投放场景为突破口。通过一对一访谈与用户操作流程观察，发现经纪人每日手动投放上百套房源耗时 30 分钟以上的深层痛点，且用户实际使用路径与产品假设存在显著偏差。</p>
+</div>
+<div class="project-card__section">
+<h5>产品设计</h5>
+<p>设计 6 款核心 Skill 的交互流程、功能边界与定制接口需求。钻石展位投放 Skill：高频筛选标签与批量投放/结束流程。新媒体内容生成 Skill：覆盖 8 种文案类型一键生成，集成海报自动生成、账号检测与敏感词检测。价值分析报告 Skill：AI 图片处理将户型图转换为动线图，自动生成客户版与业主版报告。同步设计合作找人、业务规则计算、复杂政策判定 Skill。</p>
+</div>
+<div class="project-card__section">
+<h5>效果验证与迭代</h5>
+<p>Skill 上线一周后主动开展第二轮线下调研，通过观察用户使用流程发现筛选维度不足的问题，迭代新增最高频筛选标签与批量结束投放功能，收到经纪人大量好评。</p>
+</div>
+<div class="project-card__metrics">
+<div class="project-metric"><span>3000+</span><small>累计覆盖经纪人</small></div>
+<div class="project-metric"><span>2000+</span><small>新媒体 Skill 首月用户</small></div>
+<div class="project-metric"><span>200→600</span><small>平台周活跃跃升</small></div>
+<div class="project-metric"><span>+5%</span><small>月营收增长</small></div>
+<div class="project-metric"><span>6×</span><small>投放效率提升</small></div>
+</div>
+</div>
+</div>
+
+<!-- Project 2 -->
+<div class="project-card reveal">
+<div class="project-card__header">
+<div>
+<h3 class="project-card__title">B 端系统 AI 功能建设 — 内容生成、客服与评价体系</h3>
+</div>
+<div class="project-card__period">2025.11 — 2026.08</div>
+</div>
+<div class="project-card__tags">
+<span class="tag">Dify 工作流</span>
+<span class="tag">Prompt Engineering</span>
+<span class="tag">意图分类</span>
+<span class="tag">评价体系</span>
+<span class="tag">AB 测试</span>
+<span class="tag">数据埋点</span>
+</div>
+<div class="project-card__body">
+<div class="project-card__section">
+<h5>项目背景</h5>
+<p>公司 B 端系统均无 AI 能力支撑。房源标题、描述、推广文案依赖经纪人手写，日均仅产出 200 条；客服系统采用规则式应答，AI 独立留资率仅 6%；公司无 AI 生成内容的评价标准与数据回收机制。</p>
+</div>
+<div class="project-card__section">
+<h5>房源内容 AI 工作流</h5>
+<p>入职首月基于 Dify 独立搭建工作流管线，完成大模型选型评估与 Prompt 调优。为每套房源自动生成三套内容：房源标题（C 端列表页）、房源描述（详情页新增模块，设计「展开→进线」埋点路径，上线两月带来 2200+ 进线）、推广文案（嵌入 B 端分享流程，1000+ 人使用、5000+ 次复制）。后续扩展至 20+ 场景，日均产出由 200 条提升至 2000 条。</p>
+</div>
+<div class="project-card__section">
+<h5>客服留资转化优化</h5>
+<p>对客服营销推广文工作流进行深度重构：将路由节点从条件分支改造为意图分类器（基于大模型），准确率由不足 50% 提升至 95%+；参考真人语料逐节点调试 Prompt；系统性优化 Prompt 话术与转化引导策略，AI 独立留资率由 6% 提升至 16.25%（日均 1000-2000 条对话）。</p>
+</div>
+<div class="project-card__section">
+<h5>评价体系与 AB 测试</h5>
+<p>从 0 搭建公司首个 AI 内容评价体系（标签评价 + 文字评价 + B 端看板），上线两月累计 200 条自来水评价、好评率 84%，框架被客源部门复用。设计 6 大客户分群 × 个性化文案标签 AB 测试，覆盖 2 万套房源，输出完整实验复盘文档。</p>
+</div>
+<div class="project-card__metrics">
+<div class="project-metric"><span>10×</span><small>日均产出效率提升</small></div>
+<div class="project-metric"><span>2200+</span><small>描述模块进线</small></div>
+<div class="project-metric"><span>5000+</span><small>推广文案复制次数</small></div>
+<div class="project-metric"><span>6%→16.25%</span><small>AI 留资率提升</small></div>
+<div class="project-metric"><span>95%+</span><small>意图分类准确率</small></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ Education ═══ -->
+<section class="section education" id="education">
+<div class="section__inner">
+<div class="section__header reveal">
+<div class="section__eyebrow">Education</div>
+<h2 class="section__title">教育背景</h2>
+</div>
+<div class="education__grid">
+<div class="edu-card reveal">
+<div class="edu-card__degree">硕士</div>
+<h3 class="edu-card__school">沈阳航空航天大学</h3>
+<p class="edu-card__major">设计学（人机与交互方向）</p>
+<p class="edu-card__period">2022.09 — 2025.06</p>
+</div>
+<div class="edu-card reveal">
+<div class="edu-card__degree">学士</div>
+<h3 class="edu-card__school">沈阳航空航天大学</h3>
+<p class="edu-card__major">工业设计</p>
+<p class="edu-card__period">2018.09 — 2022.06</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ Contact ═══ -->
+<section class="contact" id="contact">
+<h2 class="contact__title">一起做点<em>有意思的事</em></h2>
+<p class="contact__desc">如果你在找一位能落地、懂业务、跑得快的 AI 产品经理，聊聊？</p>
+<div class="contact__links">
+<a href="mailto:1983750655@qq.com" class="contact__link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+1983750655@qq.com
+</a>
+<a href="tel:+8618840060580" class="contact__link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+188-4006-0580
+</a>
+<a href="https://github.com/tonton-520" target="_blank" class="contact__link">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+GitHub
+</a>
+</div>
+</section>
+
+<footer class="footer">
+<p>© 2026 刘彤 · AI 产品经理 · 深圳</p>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(e => {
+if (e.isIntersecting) {
+e.target.classList.add('visible');
+observer.unobserve(e.target);
+}
+});
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav toggle
+const navToggle = document.querySelector('.nav__toggle');
+const navLinks = document.querySelector('.nav__links');
+if (navToggle) {
+navToggle.addEventListener('click', () => {
+navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+navLinks.style.flexDirection = 'column';
+navLinks.style.position = 'absolute';
+navLinks.style.top = '60px';
+navLinks.style.left = '0';
+navLinks.style.right = '0';
+navLinks.style.background = 'var(--paper)';
+navLinks.style.padding = '20px 32px';
+navLinks.style.borderBottom = '1px solid var(--line)';
+});
+}
+
+// Nav shrink on scroll
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+if (window.scrollY > 20) {
+nav.style.padding = '0';
+nav.querySelector('.nav__inner').style.padding = '12px 32px';
+} else {
+nav.querySelector('.nav__inner').style.padding = '18px 32px';
+}
+});
+</script>
+</body>
+</html>
