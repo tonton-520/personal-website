@@ -1,5 +1,7 @@
 # 刘彤 — 个人网站
 
+> 线上地址：https://tonton-520.github.io/personal-website/
+
 AI 产品经理个人主页，展示工作经历、项目经验、能力矩阵与教育背景。
 
 ## 技术栈
